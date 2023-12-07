@@ -40,7 +40,6 @@ while (True):
             if not (( a == 0 or b == 0 ) and ( modes[c] == "/" )):
                 break
         
-
         if modes[c] == '+':
             guess = float(a + b)
         elif modes[c] == '-':
@@ -53,8 +52,11 @@ while (True):
             guess = float(a ** b)        
 
         print(f"\n{x+1}/{MathRepeat}")
-        answer = float(input(f"{a} {modes[c]} {b} = "))
-
+        try:
+            answer = float(input(f"{a} {modes[c]} {b} = "))
+        except:
+            answer = null
+            
         if ( round(guess,2) == round(answer,2) ):
             count+=1
 
