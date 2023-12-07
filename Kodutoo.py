@@ -19,7 +19,7 @@ while (True):
             modes.append('/')
             modes.append('*')
         elif level == '3':
-            MaxNum = 75
+            MaxNum = 50
             modes.append('/')
             modes.append('*')
             modes.append('**')
@@ -52,13 +52,17 @@ while (True):
             guess = float(a ** b)        
 
         print(f"\n{x+1}/{MathRepeat}")
+        
+        answer = str(input(f"{a} {modes[c]} {b} = "))
+        if ( answer == "exit"):
+            exit()
+
         try:
-            answer = float(input(f"{a} {modes[c]} {b} = "))
+            answer = float(answer)
+            if ( round(guess,2) == round(answer,2) ):
+                count+=1
         except:
-            answer = null
-            
-        if ( round(guess,2) == round(answer,2) ):
-            count+=1
+            pass
 
     MarkPer = (count/MathRepeat)*100
 
